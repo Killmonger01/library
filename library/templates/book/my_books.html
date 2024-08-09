@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Мои книги{% endblock %}
+
+{% block content %}
+    <h2 class="text-center">Мои книги</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Название</th>
+                <th>Дата получения</th>
+                <th>Дней на руках</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for book in books %}
+            <tr>
+                <td>{{ book.title }}</td>
+                <td>{{ book.borrowed_date }}</td>
+                <td>{{ book.days_borrowed }}</td> 
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
