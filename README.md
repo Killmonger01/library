@@ -23,3 +23,7 @@ python manage.py migrate
 ```
 python manage.py runserver
 ```
+Доступные эндпоинты
+```
+http://127.0.0.1:8000/api/register/ # POST, {"username": "something","password": "something","first_name": "something","last_name": "something","address": "something"}
+```
