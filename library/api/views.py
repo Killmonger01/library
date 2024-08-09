@@ -33,11 +33,10 @@ class BorrowBookView(APIView):
     permission_classes = [permissions.IsAuthenticated]
 
     def post(self, request, book_id):
-        borrowed_entry, created = Ever_borrowed_book.objects.get_or_create(
+        borrowed_entry, _ = Ever_borrowed_book.objects.get_or_create(
             user=request.user)
-        if not created:
-            borrowed_entry.has_book = True
-            borrowed_entry.save()
+        borrowed_entry.has_book = True
+        borrowed_entry.save()
         book = get_object_or_404(Book, id=book_id)
         if book.is_checked_out:
             return Response({"detail": "Book already checked out"},

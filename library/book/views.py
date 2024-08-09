@@ -36,17 +36,18 @@ def index(request):
 
 @login_required
 def borrow_book(request, book_id):
-    borrowed_entry, created = Ever_borrowed_book.objects.get_or_create(
+    borrowed_entry, _ = Ever_borrowed_book.objects.get_or_create(
         user=request.user)
-    if not created:
-        borrowed_entry.has_book = True
-        borrowed_entry.save()
+    borrowed_entry.has_book = True
+    borrowed_entry.save()
+
     book = get_object_or_404(Book, id=book_id)
     if request.method == 'POST' and book.borrowed_by is None:
         book.borrowed_by = request.user
         book.borrowed_date = timezone.now()
         book.is_checked_out = True
         book.save()
+
     return redirect('book:index')
 
 
