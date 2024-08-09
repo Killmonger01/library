@@ -5,6 +5,11 @@
 python -m venv venv
 source venv/Scripts/activate
 ```
+Установите зависимости
+```
+python -m pip install --upgrade pip # если нужно обновить pip
+pip install -r requirements.txt 
+```
 Перейдите в директерию с файлом manage.py
 ```
 cd library/ 
