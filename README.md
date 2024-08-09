@@ -24,6 +24,9 @@ python manage.py migrate
 python manage.py runserver
 ```
 Доступные эндпоинты
-```
-http://127.0.0.1:8000/api/register/ # POST, {"username": "something","password": "something","first_name": "something","last_name": "something","address": "something"}
-```
+- http://127.0.0.1:8000/api/register/ # POST, {"username": "something","password": "something","first_name": "something","last_name": "something","address": "something"}
+- http://127.0.0.1:8000/api/token/ # POST, {"username": "something","password": "something"}
+- http://127.0.0.1:8000/api/books/ # GET, Need Token
+- http://127.0.0.1:8000/api/my-books/ # GET, Need Token
+- http://127.0.0.1:8000/api/books/<int:book_id>/borrow/ # POST, Need Token
+- http://127.0.0.1:8000/api/books/<int:book_id>/return/ # POST, Need Token
